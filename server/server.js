@@ -22,10 +22,19 @@ app.post("/api/question", (req, res, next) => {
   if (isCorrectAnswer(question, answer)) {
     score.correct += 1;
     res.cookie("score"), JSON.stringify(score), { signed: true };
-    return res.json({ result: correct });
+    return res.json({ result: "correct" });
   } else {
     res.cookie("score", JSON.stringify(score), { signed: true });
     return res.json({ result: "incorrect" });
+  }
+});
+
+app.use(express.static("../client/dist"));
+app.use((req, res, next) => {
+  if (req.method === "GET" && !req.path.startsWith("/api/")) {
+    return res.sendFile(path.resolve("../client/dist/index.html"));
+  } else {
+    next();
   }
 });
 
