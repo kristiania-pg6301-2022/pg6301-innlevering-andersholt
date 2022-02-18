@@ -1,7 +1,7 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 import { BrowserRouter, Routes, Link, Route } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function FrontPage() {
   return (
@@ -17,14 +17,20 @@ function FrontPage() {
   );
 }
 
-async function Question() {
+function Question() {
   const [question, setQuestion] = useState();
-  const res = await fetch("/api/question");
-  setQuestion(res);
+  useEffect(async () => {
+    const res = await fetch("/api/question");
+    setQuestion(await res.json());
+  }, []);
+
+  if (!question) {
+    return <div>Loading....</div>;
+  }
+
   return (
     <div>
-      <h3>{question.question}</h3>
-      <p>{question.answers}</p>
+      <h1>{question.question}</h1>
     </div>
   );
 }

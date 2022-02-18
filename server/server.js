@@ -1,5 +1,6 @@
 import express from "express";
 import { isCorrectAnswer, Questions, randomQuestion } from "./questions.js";
+import * as path from "path";
 
 const app = express();
 
