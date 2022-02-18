@@ -1,13 +1,17 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import {BrowserRouter, Routes, Link, Route} from "react-router-dom";
+import { BrowserRouter, Routes, Link, Route } from "react-router-dom";
 
 function FrontPage() {
   return (
     <div>
       <h1>Kristiania Quiz</h1>
-      <Link to={"/question"}>Answer a question</Link>
-      <Link to={"/score"}>Show Score</Link>
+      <div>
+        <Link to={"/question"}>Answer a question</Link>
+      </div>
+      <div>
+        <Link to={"/score"}>Show Score</Link>
+      </div>
     </div>
   );
 }
