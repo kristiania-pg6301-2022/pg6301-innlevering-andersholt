@@ -1,6 +1,7 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 import { BrowserRouter, Routes, Link, Route } from "react-router-dom";
+import { useState } from "react";
 
 function FrontPage() {
   return (
@@ -16,8 +17,16 @@ function FrontPage() {
   );
 }
 
-function Question() {
-  return null;
+async function Question() {
+  const [question, setQuestion] = useState();
+  const res = await fetch("/api/question");
+  setQuestion(res);
+  return (
+    <div>
+      <h3>{question.question}</h3>
+      <p>{question.answers}</p>
+    </div>
+  );
 }
 
 function ShowScore() {
