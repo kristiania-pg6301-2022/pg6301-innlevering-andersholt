@@ -4,9 +4,8 @@ import { randomQuestion } from "./questions.js";
 const app = express();
 
 app.get("/api/question", (req, res) => {
-  const { question, answers } = randomQuestion();
-
-  res.json({ question, answers });
+  const { id, category, question, answers } = randomQuestion();
+  res.json({ id, question, answers, category });
 });
 const server = app.listen(process.env.PORT || 3000, () => {
   console.log(
