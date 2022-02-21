@@ -19,6 +19,7 @@ function FrontPage() {
 
 function Question() {
   const [question, setQuestion] = useState();
+
   useEffect(async () => {
     const res = await fetch("/api/question");
     setQuestion(await res.json());
@@ -50,4 +51,5 @@ function App() {
     </BrowserRouter>
   );
 }
+
 ReactDOM.render(<App />, document.getElementById("app"));
