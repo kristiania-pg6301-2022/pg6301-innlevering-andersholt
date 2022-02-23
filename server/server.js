@@ -1,8 +1,11 @@
 import express from "express";
 import { isCorrectAnswer, Questions, randomQuestion } from "./questions.js";
 import * as path from "path";
+import bodyParser from "body-parser";
 
 const app = express();
+
+app.use(bodyParser.json());
 
 app.get("/api/question", (req, res) => {
   const { id, category, question, answers } = randomQuestion();
@@ -19,8 +22,10 @@ app.post("/api/question", (req, res) => {
   }
 
   if (isCorrectAnswer(question, answer)) {
+    console.log("right");
     return res.json({ result: "correct" });
   } else {
+    console.log("wrong");
     return res.json({ result: "incorrect" });
   }
 });

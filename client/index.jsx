@@ -29,12 +29,47 @@ function Question() {
     return <div>Loading....</div>;
   }
 
+  async function handleAnswer(answer) {
+    const { id } = question;
+    await fetch("api/question", {
+      method: "post",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify({ id, answer }),
+    });
+  }
+
   return (
     <div>
       <h1>{question.question}</h1>
+      {Object.keys(question.answers)
+        .filter((a) => question.answers[a])
+        .map((a) => (
+          <div key={a}>
+            <button onClick={() => handleAnswer(a)}>
+              {question.answers[a]}
+            </button>
+          </div>
+        ))}
     </div>
   );
 }
+
+/*function Q() {
+  const [question, setQuestion] = useState();
+
+  async function handle() {
+    const res = await fetch("/api/question");
+    setQuestion(await res.json());
+  }
+
+  if (!question) {
+    return <div>Loading....</div>;
+  }
+
+  return <Question question={question} />;
+}*/
 
 function ShowScore() {
   return null;
