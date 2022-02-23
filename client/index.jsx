@@ -52,6 +52,7 @@ function Question() {
             </button>
           </div>
         ))}
+      <Link to={"/score"}>Show current score</Link>
     </div>
   );
 }
@@ -72,7 +73,26 @@ function Question() {
 }*/
 
 function ShowScore() {
-  return null;
+  const [cookie, setCookie] = useState({});
+
+  useEffect(async () => {
+    const res = await fetch("/api/score");
+    setCookie(await res.json());
+  }, []);
+
+  const { answered, correct } = cookie;
+
+  return (
+    <div>
+      <h1>
+        You have: {correct} correct, out of: {answered} answers
+      </h1>
+      <div>
+        <Link to={"/question"}>Answer another question</Link>
+      </div>
+      <Link to={"/"}>Go Back to frontpage</Link>
+    </div>
+  );
 }
 
 function App() {
