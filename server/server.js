@@ -17,7 +17,7 @@ app.get("/api/question", (req, res) => {
 });
 
 /*
-app.use("api/question", CookieRouter);
+app.use("api/question/", CookieRouter);
 */
 
 // callback: (req, res) => {}

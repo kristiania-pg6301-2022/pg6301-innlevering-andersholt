@@ -16,12 +16,16 @@ export function FrontPage() {
   );
 }
 
+async function fetchJSON(url) {
+  const res = await fetch(url);
+  return await res.json();
+}
+
 export function Question() {
   const [question, setQuestion] = useState();
 
   useEffect(async () => {
-    const res = await fetch("/api/question");
-    setQuestion(await res.json());
+    setQuestion(await fetchJSON("api/question"));
   }, []);
 
   if (!question) {
@@ -37,6 +41,7 @@ export function Question() {
       },
       body: JSON.stringify({ id, answer }),
     });
+    await setQuestion(await fetchJSON("api/question"));
   }
 
   return (
