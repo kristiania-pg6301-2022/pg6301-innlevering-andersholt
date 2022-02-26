@@ -21,6 +21,16 @@ async function fetchJSON(url) {
   return await res.json();
 }
 
+async function postJSON(url, json) {
+  await fetch(url, {
+    method: "post",
+    headers: {
+      "content-type": "application/json",
+    },
+    body: JSON.stringify(json),
+  });
+}
+
 export function Question() {
   const [question, setQuestion] = useState();
 
@@ -34,13 +44,9 @@ export function Question() {
 
   async function handleAnswer(answer) {
     const { id } = question;
-    await fetch("api/question", {
-      method: "post",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify({ id, answer }),
-    });
+
+    await postJSON("api/question", { id, answer });
+
     await setQuestion(await fetchJSON("api/question"));
   }
 
@@ -80,8 +86,7 @@ export function ShowScore() {
   const [cookie, setCookie] = useState({});
 
   useEffect(async () => {
-    const res = await fetch("/api/score");
-    setCookie(await res.json());
+    setCookie(await fetchJSON("api/score"));
   }, []);
 
   const { answered, correct } = cookie;
