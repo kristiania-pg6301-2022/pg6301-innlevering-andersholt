@@ -28,10 +28,7 @@
   "jest": {
     "testEnvironment": "jsdom",
     "collectCoverageFrom": [
-      "**/*.{js,jsx}",
-      "!index.jsx",
-      "!coverage/**",
-      "!dist/**"
+      "**/*.{js,jsx}"
     ]
   },
   "babel": {

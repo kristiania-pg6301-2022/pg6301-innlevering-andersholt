@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { BrowserRouter, MemoryRouter, Router, Routes } from "react-router-dom";
+import { MemoryRouter } from "react-router-dom";
 
 import { FrontPage } from "../application.jsx";
 
