@@ -1,6 +1,7 @@
 import * as React from "react";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { fetchJSON, postJSON, useLoader } from "./http";
 
 export function FrontPage() {
   return (
@@ -16,30 +17,19 @@ export function FrontPage() {
   );
 }
 
-async function fetchJSON(url) {
-  const res = await fetch(url);
-  return await res.json();
-}
-
-async function postJSON(url, json) {
-  await fetch(url, {
-    method: "post",
-    headers: {
-      "content-type": "application/json",
-    },
-    body: JSON.stringify(json),
-  });
-}
-
 export function Question() {
-  const [question, setQuestion] = useState();
+  const { reload, loading, error, data } = useLoader(
+    async () => await fetchJSON("api/question")
+  );
 
-  useEffect(async () => {
-    setQuestion(await fetchJSON("api/question"));
-  }, []);
+  const question = data;
 
-  if (!question) {
+  if (loading) {
     return <div>Loading....</div>;
+  }
+
+  if (error) {
+    return <div> An error occurred: {error.toString()} </div>;
   }
 
   async function handleAnswer(answer) {
@@ -47,7 +37,7 @@ export function Question() {
 
     await postJSON("api/question", { id, answer });
 
-    await setQuestion(await fetchJSON("api/question"));
+    await reload();
   }
 
   return (
@@ -83,13 +73,19 @@ export function Question() {
 }*/
 
 export function ShowScore() {
-  const [cookie, setCookie] = useState({});
+  const { loading, error, data } = useLoader(
+    async () => await fetchJSON("api/score")
+  );
 
-  useEffect(async () => {
-    setCookie(await fetchJSON("api/score"));
-  }, []);
+  if (loading) {
+    return <div>Loading....</div>;
+  }
 
-  const { answered, correct } = cookie;
+  if (error) {
+    return <div> An error occurred: {error.toString()} </div>;
+  }
+
+  const { answered, correct } = data;
 
   return (
     <div>
