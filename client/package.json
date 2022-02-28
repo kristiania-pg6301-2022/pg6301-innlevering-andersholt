@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "parcel index.html",
     "build": "parcel build index.html",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest",
+    "verify": "jest --collectCoverage"
   },
   "keywords": [],
   "author": "",
@@ -25,7 +26,10 @@
     "jest": "^27.4.7"
   },
   "jest": {
-  "testEnvironment": "jsdom"
+  "testEnvironment": "jsdom",
+    "collectCoverageFrom": [
+      "*.jsx"
+    ]
 },
   "babel": {
     "presets": [
