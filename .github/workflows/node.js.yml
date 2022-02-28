@@ -22,8 +22,8 @@ jobs:
           cache: 'npm'
       - run: cd client && npm ci
       - run: cd client && npm run verify
+      - run: jest --coverage --config config/jest.js
       - name: Coveralls
         uses: coverallsapp/github-action@master
         with:
-          path: coverage/lcov.info
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+          github-token: ${{ secrets.GITHUB_TOKEN }};
