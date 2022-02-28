@@ -20,7 +20,7 @@ jobs:
         with:
           node-version: 16.x
           cache: 'npm'
-      - run: build:server
+      - run: cd server && npm ci
       - run: cd client && npm ci
       - run: cd client && npm run verify
       - name: Coveralls
