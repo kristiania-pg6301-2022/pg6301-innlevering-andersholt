@@ -7,7 +7,7 @@
     "dev": "parcel index.html",
     "build": "parcel build index.html",
     "test": "jest",
-    "verify": "jest --collectCoverage"
+    "verify": "jest --coverage"
   },
   "keywords": [],
   "author": "",
@@ -28,7 +28,10 @@
   "jest": {
   "testEnvironment": "jsdom",
     "collectCoverageFrom": [
-      "*.jsx"
+      "**/*.{js,jsx}",
+      "!index.jsx",
+      "!coverage/**",
+      "!dist/**"
     ]
 },
   "babel": {
