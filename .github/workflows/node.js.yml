@@ -20,8 +20,10 @@ jobs:
         with:
           node-version: 16.x
           cache: 'npm'
+      - run: cd client && npm ci
       - run: cd client && npm run verify
-      - name: coveralls
+      - run: jest --coverage --config config/jest.js
+      - name: Coveralls
         uses: coverallsapp/github-action@master
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }};
