@@ -29,7 +29,12 @@
     "collectCoverage": true,
     "testEnvironment": "jsdom",
     "collectCoverageFrom": [
-      "**/*.{js,jsx}"
+      "**/*.{tsx,ts,jsx,js}",
+      "!coverage/**",
+      "!dist/**",
+      "!.eslintrc.js",
+      "!babel.config.js",
+      "!index.tsx"
     ]
   },
   "babel": {
