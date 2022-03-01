@@ -7,7 +7,7 @@
     "dev": "parcel index.html",
     "build": "parcel build index.html",
     "test": "jest",
-    "verify": "jest -- --coverage"
+    "verify": "npm test -- --coverage"
   },
   "keywords": [],
   "author": "",
@@ -26,6 +26,7 @@
     "react-router-dom": "^6.2.1"
   },
   "jest": {
+    "collectCoverage": true,
     "testEnvironment": "jsdom",
     "collectCoverageFrom": [
       "**/*.{js,jsx}"
