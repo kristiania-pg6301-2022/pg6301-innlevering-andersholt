@@ -12,23 +12,12 @@
     "format": "prettier --write **/*.{js,jsx}",
     "format:check": "prettier --check **/*.{js,jsx}",
     "test": "jest",
-    "prepare": "husky install",
-    "verify": "jest -- --collectCoverage"
+    "prepare": "husky install"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "@babel/preset-env": "^7.16.11",
-    "@babel/preset-react": "^7.16.7",
-    "babel-jest": "^27.4.6",
-    "jest": "^27.4.7",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-router-dom": "^6.2.1"
-  },
   "devDependencies": {
-    "parcel": "^2.3.0",
     "jest": "^27.4.7",
     "concurrently": "^7.0.0",
     "husky": "^7.0.4",
@@ -46,24 +35,5 @@
   "bugs": {
     "url": "https://github.com/kristiania-pg6301-2022/pg6301-innlevering-andersholt/issues"
   },
-  "homepage": "https://github.com/kristiania-pg6301-2022/pg6301-innlevering-andersholt#readme",
-  "jest": {
-    "collectCoverage": true,
-    "testEnvironment": "jsdom",
-    "collectCoverageFrom": [
-      "**/*.{tsx,ts,jsx,js}",
-      "!coverage/**",
-      "!dist/**",
-      "!.eslintrc.js",
-      "!babel.config.js",
-      "!index.tsx"
-    ]
-  },
-  "babel": {
-    "presets": [
-      "@babel/preset-env",
-      "@babel/preset-react"
-
-    ]
-  }
+  "homepage": "https://github.com/kristiania-pg6301-2022/pg6301-innlevering-andersholt#readme"
 }
