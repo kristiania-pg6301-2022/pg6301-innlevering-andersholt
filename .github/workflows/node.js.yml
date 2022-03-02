@@ -20,10 +20,9 @@ jobs:
         with:
           node-version: 16.x
           cache: 'npm'
-      - run: cd client && npm ci
-      - run: cd client && npm run verify
-      - name: Coveralls
-        uses: coverallsapp/github-action@master
+      - run: npm ci
+      - run: npm run verify
+      - name: Coveralls GitHub Action
+        uses: coverallsapp/github-action@1.1.3
         with:
-          path-to-lcov: client/coverage/lcov.info
           github-token: ${{ secrets.GITHUB_TOKEN }}
