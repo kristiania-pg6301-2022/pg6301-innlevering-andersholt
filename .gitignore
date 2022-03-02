@@ -3,4 +3,5 @@ dist/
 .parcel-cache/
 node_modules/
 .env
-/client/coverage/
+coverage/
+client/coverage

@@ -13,7 +13,7 @@
     "format:check": "prettier --check **/*.{js,jsx}",
     "test": "jest",
     "prepare": "husky install",
-    "verify": "jest -- --collectCoverage"
+    "verify": "npm run test --collectCoverage"
   },
   "keywords": [],
   "author": "",
@@ -61,6 +61,7 @@
     "presets": [
       "@babel/preset-env",
       "@babel/preset-react"
+
     ]
   }
 }
