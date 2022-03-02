@@ -14,7 +14,6 @@
     "test": "jest",
     "prepare": "husky install",
     "verify": "jest --collectCoverage"
-
   },
   "keywords": [],
   "author": "",
@@ -22,15 +21,16 @@
   "dependencies": {
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-router-dom": "^6.2.1"
+    "react-router-dom": "^6.2.1",
+    "supertest": "^6.2.2"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.16.11",
     "@babel/preset-react": "^7.16.7",
     "babel-jest": "^27.5.1",
-    "jest": "^27.4.7",
     "concurrently": "^7.0.0",
     "husky": "^7.0.4",
+    "jest": "^27.4.7",
     "prettier": "^2.5.1"
   },
   "jest": {

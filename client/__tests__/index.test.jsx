@@ -15,12 +15,6 @@ describe("index", () =>
       element
     );
 
-    console.log(
-      <MemoryRouter>
-        <FrontPage></FrontPage>
-      </MemoryRouter>
-    );
-
     expect(element.querySelector("h1").innerHTML).toEqual("Kristiania Quiz");
     expect(element.innerHTML).toMatchSnapshot();
   }));
