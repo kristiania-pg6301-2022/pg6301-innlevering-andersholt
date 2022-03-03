@@ -7,8 +7,6 @@ import cookieParser from "cookie-parser";
 import request from "supertest";
 import "babel-polyfill";
 
-/**/
-
 import { FrontPage, Question } from "../application.jsx";
 
 const app = express();
@@ -28,15 +26,5 @@ describe("Quiz game Innlevering", () => {
     );
 
     expect(element.innerHTML).toMatchSnapshot();
-  });
-
-  it("returns a random question", async () => {
-    const response = await request(app).get("/question/random").expect(200);
-    expect(response.body).toMatchObject({
-      id: expect.any(Number),
-      answers: expect.any(Object),
-      category: expect.any(String),
-    });
-    expect(response.body).not.toHaveProperty("correct_answers");
   });
 });
