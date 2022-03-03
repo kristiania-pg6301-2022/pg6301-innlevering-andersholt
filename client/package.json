@@ -34,7 +34,7 @@
     "collectCoverage": true,
     "testEnvironment": "jsdom",
     "modulePaths": [
-      "<rootDir>"
+      "/client/node_modules"
     ],
     "collectCoverageFrom": [
       "**/*.{tsx,ts,jsx,js}",
