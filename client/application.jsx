@@ -1,6 +1,7 @@
 import * as React from "react";
 import { Link } from "react-router-dom";
-import { fetchJSON, postJSON, useLoader } from "./http";
+import { fetchJSON, postJSON } from "./http";
+import { useLoader } from "./useLoader";
 
 export function FrontPage() {
   return (
