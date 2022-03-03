@@ -4,7 +4,7 @@ import * as path from "path";
 import bodyParser from "body-parser";
 import cookieParser from "cookie-parser";
 import dotenv from "dotenv";
-/**/
+
 dotenv.config();
 
 const app = express();

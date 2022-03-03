@@ -37,4 +37,8 @@ describe("Quiz game Innlevering", () => {
     });
     expect(response.body).not.toHaveProperty("correct_answers");
   });
+
+  it("gives 404 on incorrect question", async () => {
+    await request(app).post("/quiz/answer").send({ id: -666 }).expect(404);
+  });
 });
