@@ -28,17 +28,17 @@ describe("Quiz game Innlevering", () => {
     expect(element.innerHTML).toMatchSnapshot();
   });
 
-  it("returns a random question", async () => {
-    const response = await request(app).get("/question/random").expect(200);
-    expect(response.body).toMatchObject({
-      id: expect.any(Number),
-      answers: expect.any(Object),
-      category: expect.any(String),
-    });
-    expect(response.body).not.toHaveProperty("correct_answers");
-  });
-
-  it("gives 404 on incorrect question", async () => {
-    await request(app).post("/quiz/answer").send({ id: -666 }).expect(404);
-  });
+  //  it("returns a random question", async () => {
+  //     const response = await request(app).get("/question/random").expect(200);
+  //     expect(response.body).toMatchObject({
+  //       id: expect.any(Number),
+  //       answers: expect.any(Object),
+  //       category: expect.any(String),
+  //     });
+  //     expect(response.body).not.toHaveProperty("correct_answers");
+  //   });
+  //
+  //   it("gives 404 on incorrect question", async () => {
+  //     await request(app).post("/quiz/answer").send({ id: -666 }).expect(404);
+  //   });
 });

@@ -4,6 +4,7 @@ import * as path from "path";
 import bodyParser from "body-parser";
 import cookieParser from "cookie-parser";
 import dotenv from "dotenv";
+export const Question = express.Router();
 
 dotenv.config();
 
@@ -69,7 +70,7 @@ app.use((req, res, next) => {
 });
 
 //assigning port
-const server = app.listen(process.env.PORT || 3000, () => {
+const server = app.listen(process.env.PORT || 3001, () => {
   console.log(
     `Server started on port http://localhost:${server.address().port}`
   );

@@ -38,7 +38,11 @@
     "collectCoverage": true,
     "testEnvironment": "jsdom",
     "collectCoverageFrom": [
-      "**/*.{js,jsx}"
+      "client/*.{js,jsx,tsx,ts}",
+      "server/*.{js,jsx,tsx,ts}"
+    ],
+    "transformIgnorePatterns": [
+      "<rootDir>/node_modules/(?!@ionic-native|@ionic|@ngrx|angular2-ui-switch|angularfire2|jest-cli)"
     ]
   },
   "repository": {
