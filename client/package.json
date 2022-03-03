@@ -33,9 +33,6 @@
   "jest": {
     "collectCoverage": true,
     "testEnvironment": "jsdom",
-    "modulePaths": [
-      "/client/node_modules"
-    ],
     "collectCoverageFrom": [
       "**/*.{tsx,ts,jsx,js}",
       "!coverage/**",
