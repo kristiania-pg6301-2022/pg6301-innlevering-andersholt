@@ -12,8 +12,6 @@ app.use("/question", Question);
 describe("Post Endpoints", () => {
   it("should create a new post", async () => {
     const res = await request(app).get("/api/question");
-    console.log(res);
-
     expect(res.statusCode).toEqual(404);
   });
 });
