@@ -14,8 +14,6 @@ app.use(bodyParser.json);
 app.use(cookieParser("test secret"));
 app.use("/question", Question);
 
-/**/
-
 describe("Quiz game Innlevering", () => {
   it("displays homepage", () => {
     const element = document.createElement("div");
