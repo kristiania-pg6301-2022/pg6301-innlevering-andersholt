@@ -7,6 +7,8 @@ import cookieParser from "cookie-parser";
 import request from "supertest";
 import "babel-polyfill";
 
+/**/
+
 import { FrontPage, Question } from "../application.jsx";
 
 const app = express();
