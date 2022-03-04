@@ -9,10 +9,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path={"/"} element={<FrontPage />} />
-        <Route
-          path={"/question"}
-          element={<Question getQuestion={getQuestion} />}
-        />
+        <Route path={"/question"} element={<Question />} />
         <Route path={"/score"} element={<ShowScore />} />
       </Routes>
     </BrowserRouter>
