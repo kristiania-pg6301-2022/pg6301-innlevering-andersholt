@@ -57,21 +57,6 @@ export function Question() {
   );
 }
 
-/*function Q() {
-  const [question, setQuestion] = useState();
-
-  async function handle() {
-    const res = await fetch("/api/question");
-    setQuestion(await res.json());
-  }
-
-  if (!question) {
-    return <div>Loading....</div>;
-  }
-
-  return <Question question={question} />;
-}*/
-
 export function ShowScore() {
   const { loading, error, data } = useLoader(
     async () => await fetchJSON("api/score")
