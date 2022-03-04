@@ -1,11 +1,11 @@
 import request from "supertest";
 import app from "../server";
 import { handler } from "../server";
-jest.setTimeout(20000);
 
-afterEach(() => {
+afterAll(() => {
   handler();
 });
+
 describe("Get score", () => {
   it("should return correct statuscode and body", async () => {
     const res = await request(app).get("/api/score");
