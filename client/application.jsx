@@ -2,6 +2,7 @@ import * as React from "react";
 import { Link } from "react-router-dom";
 import { fetchJSON, postJSON } from "./http";
 import { useLoader } from "./useLoader";
+import { useContext } from "react";
 
 export function FrontPage() {
   return (
@@ -17,9 +18,19 @@ export function FrontPage() {
   );
 }
 
+export const QuestionApiContext = React.createContext({
+  async getQuestion() {
+    return await fetchJSON("api/question");
+  },
+  async postAnswer(id, answer) {
+    return await postJSON("api/question", { id, answer });
+  },
+});
+
 export function Question() {
+  const { getQuestion, postAnswer } = useContext(QuestionApiContext);
   const { reload, loading, error, data } = useLoader(
-    async () => await fetchJSON("api/question")
+    async () => await getQuestion()
   );
 
   const question = data;
@@ -35,7 +46,7 @@ export function Question() {
   async function handleAnswer(answer) {
     const { id } = question;
 
-    await postJSON("api/question", { id, answer });
+    await postAnswer(id, answer);
 
     await reload();
   }
@@ -47,7 +58,7 @@ export function Question() {
         .filter((a) => question.answers[a])
         .map((a) => (
           <div key={a}>
-            <button onClick={() => handleAnswer(a)}>
+            <button data-testid={a} onClick={() => handleAnswer(a)}>
               {question.answers[a]}
             </button>
           </div>
