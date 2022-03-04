@@ -3,10 +3,10 @@ import ReactDOM from "react-dom";
 import { MemoryRouter } from "react-router-dom";
 import "babel-polyfill";
 
-import { FrontPage } from "../application.jsx";
+import { FrontPage, Question, ShowScore } from "../application.jsx";
 
-describe("Quiz game Innlevering", () => {
-  it("displays homepage", () => {
+describe("Frontpage", () => {
+  it("displays correct content", () => {
     const element = document.createElement("div");
 
     ReactDOM.render(
@@ -17,5 +17,32 @@ describe("Quiz game Innlevering", () => {
     );
 
     expect(element.innerHTML).toMatchSnapshot();
+  });
+});
+describe("Score", () => {
+  it("displays right content", () => {
+    const element = document.createElement("div");
+
+    ReactDOM.render(
+      <MemoryRouter>
+        <ShowScore />
+      </MemoryRouter>,
+      element
+    );
+
+    expect(element.innerHTML).toMatchSnapshot();
+  });
+});
+
+describe("Question", () => {
+  it("displays right content", () => {
+    const element = document.createElement("div");
+
+    ReactDOM.render(
+      <MemoryRouter>
+        <Question />
+      </MemoryRouter>,
+      element
+    );
   });
 });
