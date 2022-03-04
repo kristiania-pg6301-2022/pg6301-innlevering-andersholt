@@ -5,7 +5,9 @@
   "scripts": {
     "dev": "parcel watch  index.html",
     "build": "npm install --include=dev && parcel build index.html",
-    "test": "jest"
+    "test": "jest",
+    "verify": "jest --collectCoverage"
+
   },
   "keywords": [],
   "author": "",
@@ -33,6 +35,7 @@
   "jest": {
     "collectCoverage": true,
     "testEnvironment": "jsdom",
+    "coverageDirectory": "../coverage",
     "collectCoverageFrom": [
       "**/*.{tsx,ts,jsx,js}",
       "!coverage/**",

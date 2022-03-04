@@ -4,6 +4,7 @@ import { MemoryRouter } from "react-router-dom";
 import "babel-polyfill";
 
 import { FrontPage, Question, ShowScore } from "../application.jsx";
+import { act } from "react-dom/test-utils";
 
 describe("Frontpage", () => {
   it("displays correct content", () => {
@@ -35,14 +36,16 @@ describe("Score", () => {
 });
 
 describe("Question", () => {
-  it("displays right content", () => {
+  it("displays right content", async () => {
     const element = document.createElement("div");
 
-    ReactDOM.render(
-      <MemoryRouter>
-        <Question />
-      </MemoryRouter>,
-      element
+    await act(async () =>
+      ReactDOM.render(
+        <MemoryRouter>
+          <Question />
+        </MemoryRouter>,
+        element
+      )
     );
   });
 });

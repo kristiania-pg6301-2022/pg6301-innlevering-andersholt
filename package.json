@@ -14,7 +14,9 @@
     "format:check": "prettier --check **/*.{js,jsx}",
     "test": "jest",
     "prepare": "husky install",
-    "verify": "jest --collectCoverage --detectOpenHandles"
+    "verify": "npm run verify:client && npm run verify:server",
+    "verify:client": "cd client && npm run verify",
+    "verify:server": "cd server && npm run verify"
 
   },
   "keywords": [],
