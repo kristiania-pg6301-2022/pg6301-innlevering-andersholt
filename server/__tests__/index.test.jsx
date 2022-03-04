@@ -1,21 +1,29 @@
 import express from "express";
-import bodyParser from "body-parser";
 import request from "supertest";
-import cookieParser from "cookie-parser";
+import app from "../server";
+import { handler } from "../server";
 
-export const Question = express.Router();
-const app = express();
-app.use(bodyParser.json());
-app.use(cookieParser(process.env.COOKIE_SECRET));
-app.use("/question", Question);
-
-afterAll((done) => {
-  done();
+afterAll(() => {
+  handler();
 });
 
-describe("Post Endpoints", () => {
-  it("should create a new post", async () => {
+describe("Get score", () => {
+  it("should return correct statuscode and body", async () => {
+    const res = await request(app).get("/api/score");
+    expect(res.statusCode).toEqual(200);
+    expect(res.body).toEqual({ answered: 0, correct: 0 });
+  });
+});
+
+describe("Get question", () => {
+  it("should return correct statuscode and body", async () => {
     const res = await request(app).get("/api/question");
-    expect(res.statusCode).toEqual(404);
+    expect(res.statusCode).toEqual(200);
+    expect(res.body).toMatchObject({
+      id: expect.any(Number),
+      answers: expect.any(Object),
+      category: expect.any(String),
+    });
+    expect(res.body).not.toHaveProperty("correct_answers");
   });
 });

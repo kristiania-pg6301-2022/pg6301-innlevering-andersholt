@@ -6,7 +6,6 @@ import cookieParser from "cookie-parser";
 import dotenv from "dotenv";
 
 dotenv.config();
-
 const app = express();
 app.use(bodyParser.json());
 app.use(cookieParser(process.env.COOKIE_SECRET));
@@ -69,8 +68,13 @@ app.use((req, res, next) => {
 });
 
 //assigning port
-const server = app.listen(process.env.PORT || 3001, () => {
+const server = app.listen(process.env.PORT || 3000, () => {
   console.log(
     `Server started on port http://localhost:${server.address().port}`
   );
 });
+export default app;
+
+export const handler = function () {
+  server.close();
+};
