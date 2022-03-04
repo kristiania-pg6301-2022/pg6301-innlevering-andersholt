@@ -9,6 +9,15 @@ app.use(bodyParser.json());
 app.use(cookieParser(process.env.COOKIE_SECRET));
 app.use("/question", Question);
 
+beforeAll((done) => {
+  done();
+});
+
+afterAll((done) => {
+  // Closing the DB connection allows Jest to exit successfully.
+  done();
+});
+
 describe("Post Endpoints", () => {
   it("should create a new post", async (done) => {
     const res = await request(app).get("/api/question");
