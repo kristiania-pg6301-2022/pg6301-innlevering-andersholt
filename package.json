@@ -1,0 +1,61 @@
+{
+  "name": "pg6301-innlevering-andersholt",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "cd server && npm start",
+    "dev": "concurrently npm:dev:server npm:dev:client",
+    "dev:client": "cd client && npm run dev",
+    "dev:server": "cd server && npm run dev",
+    "build": "npm run build:server && npm run build:client",
+    "build:client": "cd client && npm run build",
+    "build:server": "cd server && npm run build",
+    "format": "prettier --write **/*.{js,jsx}",
+    "format:check": "prettier --check **/*.{js,jsx}",
+    "test": "jest",
+    "prepare": "husky install",
+    "verify": "jest --collectCoverage",
+    "verify:client": "cd client && npm run verify",
+    "verify:server": "cd server && npm run verify"
+
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-router-dom": "^6.2.1"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.16.11",
+    "@babel/preset-react": "^7.16.7",
+    "babel-jest": "^27.5.1",
+    "jest": "^27.4.7",
+    "concurrently": "^7.0.0",
+    "husky": "^7.0.4",
+    "prettier": "^2.5.1",
+    "supertest": "^6.2.2"
+  },
+  "jest": {
+    "collectCoverage": true,
+    "testEnvironment": "jsdom",
+    "collectCoverageFrom": [
+      "client/*.{js,jsx,tsx,ts}",
+      "server/*.{js,jsx,tsx,ts}",
+      "!client/index.jsx"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kristiania-pg6301-2022/pg6301-innlevering-andersholt.git"
+  },
+  "engines": {
+    "node": "16.13.2",
+    "npm": "8.3.1"
+  },
+  "bugs": {
+    "url": "https://github.com/kristiania-pg6301-2022/pg6301-innlevering-andersholt/issues"
+  },
+  "homepage": "https://github.com/kristiania-pg6301-2022/pg6301-innlevering-andersholt#readme"
+}
