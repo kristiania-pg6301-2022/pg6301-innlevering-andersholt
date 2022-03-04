@@ -3,7 +3,7 @@ import app from "../server";
 import { handler } from "../server";
 jest.setTimeout(10000);
 
-afterAll(() => {
+afterEach(() => {
   handler();
 });
 describe("Get score", () => {
