@@ -4,7 +4,6 @@ import * as path from "path";
 import bodyParser from "body-parser";
 import cookieParser from "cookie-parser";
 import dotenv from "dotenv";
-export const Question = express.Router();
 
 dotenv.config();
 
