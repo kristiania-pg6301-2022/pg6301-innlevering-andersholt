@@ -10,8 +10,9 @@ app.use(cookieParser(process.env.COOKIE_SECRET));
 app.use("/question", Question);
 
 describe("Post Endpoints", () => {
-  it("should create a new post", async () => {
+  it("should create a new post", async (done) => {
     const res = await request(app).get("/api/question");
     expect(res.statusCode).toEqual(404);
+    done();
   });
 });
