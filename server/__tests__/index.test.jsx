@@ -27,12 +27,12 @@ describe("Get question", () => {
   });
 });
 
-describe("Post question", () => {
-  it("should return correct statuscode and body", async () => {
-    const res = await request(app)
-      .post("/api/question")
-      .send({ id: 974, answer: "answer_b" });
-    expect(res.body).toMatchObject({ result: "correct" });
-    expect(res.statusCode).toEqual(200);
-  });
-});
+//describe("Post question", () => {
+//   it("should return correct statuscode and body", async () => {
+//     const res = await request(app)
+//       .post("/api/question")
+//       .send({ id: 974, answer: "answer_b" });
+//     expect(res.body).toMatchObject({ result: "correct" });
+//     expect(res.statusCode).toEqual(200);
+//   });
+// });
