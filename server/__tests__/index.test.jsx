@@ -1,7 +1,7 @@
 import request from "supertest";
 import app from "../server";
 import { handler } from "../server";
-jest.setTimeout(10000);
+jest.setTimeout(20000);
 
 afterEach(() => {
   handler();
