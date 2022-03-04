@@ -1,4 +1,3 @@
-import express from "express";
 import request from "supertest";
 import app from "../server";
 import { handler } from "../server";
@@ -25,5 +24,16 @@ describe("Get question", () => {
       category: expect.any(String),
     });
     expect(res.body).not.toHaveProperty("correct_answers");
+  });
+});
+
+describe("Post question", () => {
+  it("should return correct statuscode and body", async () => {
+    const res = await request(app)
+      .post("/api/question")
+      .send({ id: 974, answer: "answer_b" });
+
+    expect(res.body).toMatchObject({ result: "correct" });
+    expect(res.statusCode).toEqual(200);
   });
 });
